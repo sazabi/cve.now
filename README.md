@@ -10,7 +10,7 @@ One endpoint, `https://cve.now/feed`, narrowed with filters that combine freely.
 
 | Feed | URL |
 |---|---|
-| Critical: KEV, CERT-rated critical, or CVSS 9+ in widely used software | `https://cve.now/feed?filter=critical` |
+| Critical: in CISA KEV, CVSS 9+ in a listed technology, or CVSS 7+ with an EPSS score of 0.1 or more | `https://cve.now/feed?filter=critical` |
 | New CISA Known Exploited Vulnerabilities | `https://cve.now/feed?filter=kev` |
 | Every entry | `https://cve.now/feed` |
 | One technology | `https://cve.now/feed?tech=nextjs` |
@@ -71,7 +71,7 @@ Then ask your agent to run `check_stack` on your project's lockfile.
 | `https://cve.now/api/v1/status` | Source polling health and catalog coverage |
 | `https://cve.now/llms.txt` | A plain-text guide for LLMs and agents |
 
-Feeds and the API send `Access-Control-Allow-Origin: *`.
+`/feed` and `/api/v1/*` send `Access-Control-Allow-Origin: *`.
 
 ## Issues
 
