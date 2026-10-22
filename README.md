@@ -25,7 +25,7 @@ In Slack, run `/feed subscribe https://cve.now/feed?filter=critical` in any chan
 
 ## Check your stack
 
-Upload a lockfile (up to 5 MB) at [cve.now](https://cve.now) to get a shareable report and an RSS feed of only the entries that affect your exact package versions. Supported: `package-lock.json`, `bun.lock`, `pnpm-lock.yaml`, `yarn.lock`, `requirements.txt`, `poetry.lock`, `Cargo.lock`, `go.sum`, `Gemfile.lock`, `mix.lock`.
+Upload a lockfile at [cve.now](https://cve.now) to get a shareable report and an RSS feed of only the entries that affect your exact package versions. Supported: `package-lock.json`, `bun.lock`, `pnpm-lock.yaml`, `yarn.lock`, `requirements.txt`, `poetry.lock`, `Cargo.lock`, `go.sum`, `Gemfile.lock`, `mix.lock`.
 
 For a short package list, build the feed URL yourself:
 
