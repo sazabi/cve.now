@@ -1,6 +1,6 @@
 # cve.now
 
-**A free, public vulnerability feed.** [cve.now](https://cve.now) merges the CVE List, the GitHub Advisory Database, OSV, CISA's Known Exploited Vulnerabilities catalog (KEV) and FIRST EPSS scores into one deduplicated entry per vulnerability, and publishes it as RSS, Atom, JSON Feed, a JSON API and an MCP server. No account, no API key.
+**A free, public vulnerability feed.** [cve.now](https://cve.now) merges the CVE List, the GitHub Advisory Database, OSV, NVD, ENISA's European Vulnerability Database (EUVD), CISA's Known Exploited Vulnerabilities catalog (KEV), FIRST EPSS scores and Exploit-DB into one deduplicated entry per vulnerability, and publishes it as RSS, Atom, JSON Feed, a JSON API and an MCP server. No account, no API key.
 
 This repository is cve.now's home on GitHub: what it is, how to use it, and where to report problems. The service is built and run by [Sazabi](https://sazabi.com?utm_source=cve-now&utm_medium=github); its source code is not public.
 
@@ -91,7 +91,7 @@ This repository doesn't accept pull requests: its files are synced from Sazabi's
 
 ## Sources and licensing
 
-Data: the [CVE List](https://www.cve.org), the [GitHub Advisory Database](https://github.com/advisories), [OSV](https://osv.dev), the [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) and [FIRST EPSS](https://www.first.org/epss/). Each entry links to its sources.
+Data: the [CVE List](https://www.cve.org), the [GitHub Advisory Database](https://github.com/advisories), [OSV](https://osv.dev), the [NVD](https://nvd.nist.gov), [ENISA EUVD](https://euvd.enisa.europa.eu), the [CISA KEV catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), [FIRST EPSS](https://www.first.org/epss/) and [Exploit-DB](https://www.exploit-db.com). Each entry links to its sources.
 
 Entry summaries are written by a model and labeled as such; they're published under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/). Upstream data keeps its own license and attribution.
 
