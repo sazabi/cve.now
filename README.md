@@ -17,7 +17,7 @@ One endpoint, `https://cve.now/feed`, narrowed with filters that combine freely.
 | One package ecosystem | `https://cve.now/feed?ecosystem=npm` |
 | Combined | `https://cve.now/feed?filter=critical&tech=nextjs&format=json` |
 
-Ecosystems: `npm`, `pypi`, `go`, `maven`, `crates.io`, `packagist`, `rubygems`, `nuget`.
+Ecosystems: `npm`, `pypi`, `go`, `maven`, `crates.io`, `packagist`, `rubygems`, `hex`, `nuget`.
 
 Technologies: `nextjs`, `react`, `node`, `express`, `django`, `flask`, `rails`, `spring`, `log4j`, `kubernetes`, `docker`, `nginx`, `apache-httpd`, `openssl`, `postgresql`, `mysql`, `redis`, `php`, `wordpress`, `jenkins`, `gitlab`, `fortinet`, `citrix`, `ivanti`, `cisco-ios`, `palo-alto-panos`, `vmware`, `microsoft-exchange`, `chrome`, `linux-kernel`. Missing one? [Request it](https://github.com/sazabi/cve.now/issues/new?template=technology-request.yml).
 
@@ -25,7 +25,7 @@ In Slack, run `/feed subscribe https://cve.now/feed?filter=critical` in any chan
 
 ## Check your stack
 
-Upload a lockfile (up to 5 MB) at [cve.now](https://cve.now) to get a shareable report and an RSS feed of only the entries that affect your exact package versions. Supported: `package-lock.json`, `bun.lock`, `pnpm-lock.yaml`, `yarn.lock`, `requirements.txt`, `poetry.lock`, `Cargo.lock`, `go.sum`, `Gemfile.lock`.
+Upload a lockfile (up to 5 MB) at [cve.now](https://cve.now) to get a shareable report and an RSS feed of only the entries that affect your exact package versions. Supported: `package-lock.json`, `bun.lock`, `pnpm-lock.yaml`, `yarn.lock`, `requirements.txt`, `poetry.lock`, `Cargo.lock`, `go.sum`, `Gemfile.lock`, `mix.lock`.
 
 For a short package list, build the feed URL yourself:
 
