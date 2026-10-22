@@ -1,0 +1,32 @@
+name: Wrong merge or missing link
+description: Two entries should be one, one entry merged two different issues, or a related entry isn't linked.
+title: "[Merge] "
+labels: ["merge"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - These entries describe the same vulnerability and should be merged
+        - This entry merged different vulnerabilities
+        - A related entry or alias isn't linked
+    validations:
+      required: true
+  - type: textarea
+    id: ids
+    attributes:
+      label: Entry ids or URLs
+      description: One per line.
+      placeholder: |
+        CVE-2026-12345
+        GHSA-xxxx-xxxx-xxxx
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Why they are (or aren't) the same, with links.
+    validations:
+      required: true

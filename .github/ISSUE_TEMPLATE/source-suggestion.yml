@@ -1,0 +1,24 @@
+name: Disclosure source suggestion
+description: Suggest a vendor advisory page, CERT, mailing list or database cve.now should watch.
+title: "[Source] "
+labels: ["source"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Source URL
+      description: The advisory listing, feed, or archive.
+    validations:
+      required: true
+  - type: input
+    id: machine
+    attributes:
+      label: Machine-readable feed
+      description: RSS, CSAF, JSON or API URL, if there is one.
+  - type: textarea
+    id: why
+    attributes:
+      label: What it covers
+      description: Which products, and whether it publishes before CVE records appear (examples help).
+    validations:
+      required: true

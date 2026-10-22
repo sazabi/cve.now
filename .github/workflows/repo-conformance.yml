@@ -1,0 +1,32 @@
+name: Repo conformance
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Public Repo Conformance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Check required files
+        run: |
+          missing=()
+          [ -f LICENSE ] || missing+=("LICENSE")
+          [ -f CLAUDE.md ] || missing+=("CLAUDE.md")
+          [ -f SECURITY.md ] || missing+=("SECURITY.md")
+          if [ ! -L AGENTS.md ]; then
+            missing+=("AGENTS.md (must be a symlink to CLAUDE.md)")
+          elif [ "$(readlink AGENTS.md)" != "CLAUDE.md" ]; then
+            missing+=("AGENTS.md points to '$(readlink AGENTS.md)' — must point to 'CLAUDE.md'")
+          fi
+          if [ ${#missing[@]} -gt 0 ]; then
+            echo "Missing or malformed required files:"
+            printf '  - %s\n' "${missing[@]}"
+            exit 1
+          fi
+          echo "All required files present."

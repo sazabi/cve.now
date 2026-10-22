@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability in cve.now itself
+    url: mailto:security@sazabi.ai
+    about: Email security@sazabi.ai. Never post security problems in a public issue.
+  - name: Report a vulnerability in someone else's product
+    url: https://www.cve.org/ResourcesSupport/ReportRequest
+    about: Report it to the vendor or a CVE Numbering Authority, not here.

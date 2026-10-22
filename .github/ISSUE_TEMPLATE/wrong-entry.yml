@@ -1,0 +1,40 @@
+name: Wrong or missing entry
+description: An entry has wrong data, or a vulnerability is missing from cve.now.
+title: "[Entry] "
+labels: ["entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues are public. Don't describe unpatched vulnerabilities here; report those to the vendor.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What's wrong?
+      options:
+        - Wrong data in an entry (severity, versions, packages, summary, links)
+        - A vulnerability is missing
+        - An entry shouldn't be in a feed it's in
+        - An entry is missing from a feed it should be in
+    validations:
+      required: true
+  - type: input
+    id: id
+    attributes:
+      label: Entry id or URL
+      description: CVE, GHSA or OSV id, or the cve.now page URL.
+      placeholder: https://cve.now/CVE-2026-12345
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What cve.now shows, and what it should show.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: A link that backs the correction (advisory, CVE record, fix commit).

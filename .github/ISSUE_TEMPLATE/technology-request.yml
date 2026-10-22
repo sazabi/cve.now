@@ -1,0 +1,26 @@
+name: Technology or ecosystem request
+description: Ask for a technology feed (?tech=) or a package ecosystem we don't cover yet.
+title: "[Tech] "
+labels: ["technology"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Technology or ecosystem
+      placeholder: e.g. Caddy, HAProxy, Hex (Elixir)
+    validations:
+      required: true
+  - type: input
+    id: homepage
+    attributes:
+      label: Project or vendor URL
+  - type: textarea
+    id: identifiers
+    attributes:
+      label: How do its advisories identify it?
+      description: Vendor and product names in CVE records, CPE names, or package names, if you know them.
+  - type: textarea
+    id: why
+    attributes:
+      label: Anything else
+      description: Optional. Where it usually announces vulnerabilities, how widely it's used.
