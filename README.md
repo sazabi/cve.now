@@ -16,6 +16,9 @@ One endpoint, `https://cve.now/feed`, narrowed with filters that combine freely.
 | One technology | `https://cve.now/feed?tech=nextjs` |
 | One package ecosystem | `https://cve.now/feed?ecosystem=npm` |
 | Combined | `https://cve.now/feed?filter=critical&tech=nextjs&format=json` |
+| Several values | `https://cve.now/feed?tech=nextjs,react&ecosystem=npm,pypi` |
+
+`filter`, `tech` and `ecosystem` each take one value or several, as a comma list or repeated. An entry must match any listed value of a field and every field given. A feed combines at most 16 combinations of values (for example 4 technologies x 4 ecosystems). `list_feed` in the MCP server takes the same three fields as lists.
 
 Ecosystems: `npm`, `pypi`, `go`, `maven`, `crates.io`, `packagist`, `rubygems`, `hex`, `nuget`.
 
