@@ -69,7 +69,7 @@ Then ask your agent to run `check_stack` on your project's lockfile.
 | Endpoint | Returns |
 |---|---|
 | `https://cve.now/<id>` | Page for a CVE, GHSA or OSV id |
-| `https://cve.now/api/v1/entries/<id>` | The same entry as JSON |
+| `https://cve.now/api/v1/entries/<id>` | The same entry as JSON; a recently synced entry can redirect to a static copy, so follow redirects (`curl -L`) |
 | `https://cve.now/api/v1/entries` | All published entries, newest first, paginated with `nextCursor` |
 | `https://cve.now/api/v1/status` | Source polling health and catalog coverage |
 | `https://cve.now/llms.txt` | A plain-text guide for LLMs and agents |
