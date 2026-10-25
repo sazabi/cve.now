@@ -22,7 +22,7 @@ One endpoint, `https://cve.now/feed`, narrowed with filters that combine freely.
 
 Ecosystems: `npm`, `pypi`, `go`, `maven`, `crates.io`, `packagist`, `rubygems`, `hex`, `nuget`.
 
-Technologies: `nextjs`, `react`, `node`, `express`, `django`, `flask`, `rails`, `spring`, `log4j`, `kubernetes`, `docker`, `nginx`, `apache-httpd`, `openssl`, `postgresql`, `mysql`, `redis`, `php`, `wordpress`, `jenkins`, `gitlab`, `fortinet`, `citrix`, `ivanti`, `cisco-ios`, `palo-alto-panos`, `vmware`, `microsoft-exchange`, `chrome`, `linux-kernel`. Missing one? [Request it](https://github.com/sazabi/cve.now/issues/new?template=technology-request.yml).
+Technologies: `nextjs`, `react`, `node`, `express`, `django`, `flask`, `rails`, `spring`, `log4j`, `kubernetes`, `docker`, `nginx`, `apache-httpd`, `openssl`, `postgresql`, `mysql`, `redis`, `microsoft-sql-server`, `oracle-database`, `mariadb`, `ibm-db2`, `mongodb`, `sap-ase`, `php`, `wordpress`, `jenkins`, `gitlab`, `fortinet`, `citrix`, `ivanti`, `cisco-ios`, `palo-alto-panos`, `vmware`, `microsoft-exchange`, `chrome`, `linux-kernel`. Missing one? [Request it](https://github.com/sazabi/cve.now/issues/new?template=technology-request.yml).
 
 In Slack, run `/feed subscribe https://cve.now/feed?filter=critical` in any channel.
 
