@@ -8,15 +8,15 @@ This repository is cve.now's home on GitHub: what it is, how to use it, and wher
 
 One endpoint, `https://cve.now/feed`, narrowed with filters that combine freely. RSS by default; add `format=atom` or `format=json`.
 
-| Feed | URL |
-|---|---|
-| Critical: in CISA KEV, CVSS 9+ in a listed technology, or CVSS 7+ with an EPSS score of 0.1 or more | `https://cve.now/feed?filter=critical` |
-| New CISA Known Exploited Vulnerabilities | `https://cve.now/feed?filter=kev` |
-| Every entry | `https://cve.now/feed` |
-| One technology | `https://cve.now/feed?tech=nextjs` |
-| One package ecosystem | `https://cve.now/feed?ecosystem=npm` |
-| Combined | `https://cve.now/feed?filter=critical&tech=nextjs&format=json` |
-| Several values | `https://cve.now/feed?tech=nextjs,react&ecosystem=npm,pypi` |
+| Feed                                                                                                | URL                                                            |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Critical: in CISA KEV, CVSS 9+ in a listed technology, or CVSS 7+ with an EPSS score of 0.1 or more | `https://cve.now/feed?filter=critical`                         |
+| New CISA Known Exploited Vulnerabilities                                                            | `https://cve.now/feed?filter=kev`                              |
+| Every entry                                                                                         | `https://cve.now/feed`                                         |
+| One technology                                                                                      | `https://cve.now/feed?tech=nextjs`                             |
+| One package ecosystem                                                                               | `https://cve.now/feed?ecosystem=npm`                           |
+| Combined                                                                                            | `https://cve.now/feed?filter=critical&tech=nextjs&format=json` |
+| Several values                                                                                      | `https://cve.now/feed?tech=nextjs,react&ecosystem=npm,pypi`    |
 
 `filter`, `tech` and `ecosystem` each take one value or several, as a comma list or repeated. An entry must match any listed value of a field and every field given. A feed combines at most 16 combinations of values (for example 4 technologies x 4 ecosystems). `list_feed` in the MCP server takes the same three fields as lists.
 
@@ -66,13 +66,13 @@ Then ask your agent to run `check_stack` on your project's lockfile.
 
 ## API
 
-| Endpoint | Returns |
-|---|---|
-| `https://cve.now/<id>` | Page for a CVE, GHSA or OSV id |
+| Endpoint                              | Returns                                                                                                        |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `https://cve.now/<id>`                | Page for a CVE, GHSA or OSV id                                                                                 |
 | `https://cve.now/api/v1/entries/<id>` | The same entry as JSON; a recently synced entry can redirect to a static copy, so follow redirects (`curl -L`) |
-| `https://cve.now/api/v1/entries` | All published entries, newest first, paginated with `nextCursor` |
-| `https://cve.now/api/v1/status` | Source polling health and catalog coverage |
-| `https://cve.now/llms.txt` | A plain-text guide for LLMs and agents |
+| `https://cve.now/api/v1/entries`      | All published entries, newest first, paginated with `nextCursor`                                               |
+| `https://cve.now/api/v1/status`       | Source polling health and catalog coverage                                                                     |
+| `https://cve.now/llms.txt`            | A plain-text guide for LLMs and agents                                                                         |
 
 `/feed` and `/api/v1/*` send `Access-Control-Allow-Origin: *`.
 
