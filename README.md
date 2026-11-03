@@ -38,7 +38,7 @@ https://cve.now/stack?p=npm:lodash@4.17.20,pypi:django@4.2.0
 
 ## MCP server
 
-A remote Streamable HTTP MCP server at `https://mcp.cve.now/mcp`, no authentication. Tools: `get_vulnerability`, `list_feed` and `check_stack`.
+A remote Streamable HTTP MCP server at `https://mcp.cve.now/mcp`, no authentication. Tools: `search`, `get_vulnerability`, `list_feed` and `check_stack`. `search` takes a query (`q`) and structured parameters (`severity`, `kev`, `exploited`, `tech`, `ecosystem`, `vendor`, `package`, `published`, `type`), says why each result matched, and suggests broader queries when nothing matches.
 
 **Claude Code**
 
@@ -71,6 +71,7 @@ Then ask your agent to run `check_stack` on your project's lockfile.
 | `https://cve.now/<id>`                | Page for a CVE, GHSA or OSV id                                                                                 |
 | `https://cve.now/api/v1/entries/<id>` | The same entry as JSON; a recently synced entry can redirect to a static copy, so follow redirects (`curl -L`) |
 | `https://cve.now/api/v1/entries`      | All published entries, newest first, paginated with `nextCursor`                                               |
+| `https://cve.now/api/v1/search`       | Search by `q` and the MCP `search` parameters, with match reasons, facet counts and broader queries (llms.txt) |
 | `https://cve.now/api/v1/status`       | Source polling health and catalog coverage                                                                     |
 | `https://cve.now/llms.txt`            | A plain-text guide for LLMs and agents                                                                         |
 
