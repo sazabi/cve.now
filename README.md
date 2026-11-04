@@ -52,6 +52,21 @@ claude mcp add --transport http cve-now https://mcp.cve.now/mcp
 codex mcp add cve-now --url https://mcp.cve.now/mcp
 ```
 
+**OpenCode** (`opencode.json`)
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "cve-now": {
+      "type": "remote",
+      "url": "https://mcp.cve.now/mcp",
+      "enabled": true
+    }
+  }
+}
+```
+
 **Cursor** (`.cursor/mcp.json`)
 
 ```json
@@ -63,6 +78,18 @@ codex mcp add cve-now --url https://mcp.cve.now/mcp
 ```
 
 Then ask your agent to run `check_stack` on your project's lockfile.
+
+To have your agent check dependencies on its own, add this to your project's `AGENTS.md` or `CLAUDE.md`:
+
+```md
+## Dependency vulnerabilities
+
+Use the cve.now MCP server (https://mcp.cve.now/mcp, no API key) for vulnerability checks:
+
+- Before adding or upgrading a dependency, and when asked whether this project is affected by a CVE, call `check_stack` with the lockfile's contents (or the packages and exact versions).
+- For any CVE, GHSA or OSV id, call `get_vulnerability` to see whether it is in CISA KEV, whether its EPSS score has reached 10% (and when), and the fixed versions.
+- No matches means cve.now found none, not that the packages are safe.
+```
 
 ## API
 
