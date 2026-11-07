@@ -97,7 +97,7 @@ Use the cve.now MCP server (https://mcp.cve.now/mcp, no API key) for vulnerabili
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `https://cve.now/<id>`                | Page for a CVE, GHSA or OSV id                                                                                 |
 | `https://cve.now/api/v1/entries/<id>` | The same entry as JSON; a recently synced entry can redirect to a static copy, so follow redirects (`curl -L`) |
-| `https://cve.now/api/v1/entries`      | All published entries, newest first, paginated with `nextCursor`                                               |
+| `https://cve.now/api/v1/entries`      | All published entries, newest first, paginated with `next_cursor`                                              |
 | `https://cve.now/api/v1/search`       | Search by `q` and the MCP `search` parameters, with match reasons, facet counts and broader queries (llms.txt) |
 | `https://cve.now/api/v1/status`       | Source polling health and catalog coverage                                                                     |
 | `https://cve.now/llms.txt`            | A plain-text guide for LLMs and agents                                                                         |
