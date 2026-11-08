@@ -2,7 +2,7 @@
 
 **A free, public vulnerability feed.** [cve.now](https://cve.now) merges the CVE List, the GitHub Advisory Database, OSV, NVD, ENISA's European Vulnerability Database (EUVD), CISA's Known Exploited Vulnerabilities catalog (KEV), FIRST EPSS scores and Exploit-DB into one deduplicated entry per vulnerability, and publishes it as RSS, Atom, JSON Feed, a JSON API and an MCP server. No account, no API key.
 
-This repository is cve.now's home on GitHub: what it is, how to use it, and where to report problems. The service is built and run by [Sazabi](https://sazabi.com?utm_source=cve-now&utm_medium=github); its source code is not public.
+This repository is cve.now's home on GitHub: what it is, how to use it, and where to report problems. The service is built and run by [Sazabi](https://www.sazabi.com/?utm_source=cve-now&utm_medium=github&utm_content=readme-intro); its source code is not public.
 
 ## Feeds
 
@@ -132,4 +132,4 @@ The text in this repository is licensed under [Apache 2.0](LICENSE).
 
 ---
 
-Want to know which of these affect your systems? [Sazabi can tell you](https://sazabi.com?utm_source=cve-now&utm_medium=github).
+Want to know which of these affect your systems? [Sazabi can tell you](https://www.sazabi.com/?utm_source=cve-now&utm_medium=github&utm_content=readme-footer).
