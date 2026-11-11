@@ -79,6 +79,8 @@ codex mcp add cve-now --url https://mcp.cve.now/mcp
 
 Then ask your agent to run `check_stack` on your project's lockfile.
 
+The [`plugin/`](plugin) folder packages the same server as a plugin for Cursor and ChatGPT.
+
 To have your agent check dependencies on its own, add this to your project's `AGENTS.md` or `CLAUDE.md`:
 
 ```md

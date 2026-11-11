@@ -1,0 +1,27 @@
+{
+  "name": "cve-now",
+  "owner": {
+    "name": "Sazabi",
+    "email": "support@sazabi.ai"
+  },
+  "metadata": {
+    "description": "cve.now, a free vulnerability catalog for agents, built and run by Sazabi."
+  },
+  "plugins": [
+    {
+      "name": "cve-now",
+      "source": "plugin",
+      "description": "Look up any CVE, GHSA or OSV entry, search the catalog, read exploited-vulnerability feeds and check a project's dependencies. Free, no account.",
+      "logo": "plugin/assets/logo.svg",
+      "category": "Security",
+      "keywords": [
+        "cve",
+        "vulnerabilities",
+        "security",
+        "kev",
+        "dependencies",
+        "mcp"
+      ]
+    }
+  ]
+}

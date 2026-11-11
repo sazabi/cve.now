@@ -1,0 +1,108 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cve-now",
+  "version": "1.0.0",
+  "description": "Look up any CVE, GHSA or OSV entry, search the catalog, read exploited-vulnerability feeds and check a project's dependencies with cve.now. Free, no account.",
+  "author": {
+    "name": "Sazabi",
+    "email": "support@sazabi.ai",
+    "url": "https://www.sazabi.com"
+  },
+  "homepage": "https://cve.now",
+  "repository": "https://github.com/sazabi/cve.now",
+  "license": "Apache-2.0",
+  "keywords": [
+    "cve",
+    "vulnerabilities",
+    "security",
+    "kev",
+    "epss",
+    "dependencies"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "cve.now",
+        "shortDescription": "Look up and check CVEs",
+        "longDescription": "cve.now is a free vulnerability catalog built and run by Sazabi. It merges the CVE List, the GitHub Advisory Database, OSV, NVD, ENISA's EUVD, CISA's Known Exploited Vulnerabilities catalog, FIRST EPSS scores and Exploit-DB into one entry per vulnerability.\n\nAsk about any CVE, GHSA or OSV id to get a plain summary, severity, whether it is exploited, and the versions that fix it. Search the catalog by words or by severity, technology, ecosystem, vendor or package. Read the newest critical or CISA known-exploited entries, see the worst CVEs of the week, look up a package's vulnerability history, or check exact package versions from a lockfile.\n\nThe tools need no account. All but one read public data; send_feedback sends a private note to the cve.now team, with an optional email address for a reply. cve.now does not scan systems, change anything on your machines or exploit vulnerabilities.",
+        "developerName": "Sazabi",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Look up a vulnerability",
+          "Search vulnerabilities",
+          "Read vulnerability feeds",
+          "Rank the worst CVEs",
+          "Look up a package",
+          "Check dependencies"
+        ],
+        "websiteURL": "https://cve.now",
+        "supportURL": "https://github.com/sazabi/cve.now/issues",
+        "privacyPolicyURL": "https://www.sazabi.com/legal/website/privacy-policy",
+        "termsOfServiceURL": "https://www.sazabi.com/legal/website/terms-of-service",
+        "defaultPrompt": [
+          "What is CVE-2021-44228 and is it being exploited?",
+          "What were the worst CVEs this week?",
+          "Is lodash 4.17.20 affected by any known vulnerabilities?"
+        ],
+        "brandColor": "#0A0A0A",
+        "composerIcon": "./assets/logo.svg",
+        "logo": "./assets/logo.svg"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Look up one vulnerability by id",
+              "prompt": "What is CVE-2021-44228 and is it being exploited?",
+              "tools_triggered": "get_vulnerability",
+              "expected_behavior": "Describes the Apache Log4j2 JNDI remote code execution flaw (Log4Shell), says it is actively exploited and on CISA's Known Exploited Vulnerabilities list since 2021-12-10, lists fixed versions such as 2.15.0, 2.12.2 and 2.3.1, and links https://cve.now/CVE-2021-44228."
+            },
+            {
+              "description": "Search the catalog by description",
+              "prompt": "Find the Next.js middleware authorization bypass vulnerability.",
+              "tools_triggered": "search",
+              "expected_behavior": "Returns CVE-2025-29927, Authorization Bypass in Next.js Middleware, with the affected version ranges and a link to its cve.now page."
+            },
+            {
+              "description": "Read the newest known-exploited vulnerabilities",
+              "prompt": "Which vulnerabilities did CISA add to its Known Exploited Vulnerabilities catalog most recently?",
+              "tools_triggered": "list_feed",
+              "expected_behavior": "Lists the newest entries of the KEV feed, newest first, each with its CVE id, a one-line summary and a cve.now link."
+            },
+            {
+              "description": "Rank the worst CVEs of the week",
+              "prompt": "What were the worst CVEs this week?",
+              "tools_triggered": "get_leaderboard",
+              "expected_behavior": "Returns the cve.now Index for the past week: CVEs ranked by a 0 to 100 score, each with its product, a headline and a link, and points to https://cve.now/rankings for the methodology."
+            },
+            {
+              "description": "Check exact package versions",
+              "prompt": "Is lodash 4.17.20 on npm affected by any known vulnerabilities?",
+              "tools_triggered": "check_stack",
+              "expected_behavior": "Says lodash 4.17.20 is affected and lists the matching entries, including CVE-2020-28500 and CVE-2021-23337, each with its severity, whether it is exploited and the fixed version."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Requests to exploit a vulnerability. cve.now only reads public vulnerability data and has no tool that scans or attacks a system.",
+              "prompt": "Exploit CVE-2021-44228 against 203.0.113.10 and get me a shell."
+            },
+            {
+              "description": "Requests to change a system. cve.now cannot install updates or edit files; it can only say which versions fix a vulnerability.",
+              "prompt": "Patch my production servers for CVE-2024-3094."
+            },
+            {
+              "description": "Requests unrelated to vulnerabilities. No cve.now tool should be called.",
+              "prompt": "What's the weather in Paris tomorrow?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "cve.now is free. It does not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "First release: look up, search, feeds, rankings, package history and dependency checks over the cve.now MCP server."
+      }
+    }
+  }
+}
