@@ -38,7 +38,7 @@ https://cve.now/stack?p=npm:lodash@4.17.20,pypi:django@4.2.0
 
 ## MCP server
 
-A remote Streamable HTTP MCP server at `https://mcp.cve.now/mcp`, no authentication. Tools: `search`, `get_vulnerability`, `list_feed` and `check_stack`. `search` takes a query (`q`) and structured parameters (`severity`, `kev`, `exploited`, `tech`, `ecosystem`, `vendor`, `package`, `published`, `type`), says why each result matched, and suggests broader queries when nothing matches.
+A remote Streamable HTTP MCP server at `https://mcp.cve.now/mcp`, no authentication. Two tools that never change: `search` finds an operation and `execute` runs it. Operations: `cve.get`, `feed.read`, `stack.check`, `entities.search`, `leaderboard.get`, `feedback.send` and the `.get` and `.list` of every entity type (cve, early-warning, breach, vendor, package, tech). `entities.search` takes a query (`q`) and structured parameters (`severity`, `kev`, `exploited`, `tech`, `ecosystem`, `vendor`, `package`, `published`, `type`), says why each result matched, and suggests broader queries when nothing matches. The old tools (`get_vulnerability`, `list_feed`, `check_stack` and the rest) are deprecated since 2026-11-11 and still answer.
 
 **Claude Code**
 
@@ -77,7 +77,7 @@ codex mcp add cve-now --url https://mcp.cve.now/mcp
 }
 ```
 
-Then ask your agent to run `check_stack` on your project's lockfile.
+Then ask your agent to run the `stack.check` operation on your project's lockfile.
 
 The [`plugin/`](plugin) folder packages the same server as a plugin for Cursor and ChatGPT.
 
@@ -88,8 +88,8 @@ To have your agent check dependencies on its own, add this to your project's `AG
 
 Use the cve.now MCP server (https://mcp.cve.now/mcp, no API key) for vulnerability checks:
 
-- Before adding or upgrading a dependency, and when asked whether this project is affected by a CVE, call `check_stack` with the lockfile's contents (or the packages and exact versions).
-- For any CVE, GHSA or OSV id, call `get_vulnerability` to see whether it is in CISA KEV, whether its EPSS score has reached 10% (and when), and the fixed versions.
+- Before adding or upgrading a dependency, and when asked whether this project is affected by a CVE, run the `stack.check` operation with the lockfile's contents (or the packages and exact versions).
+- For any CVE, GHSA or OSV id, run `cve.get` to see whether it is in CISA KEV, whether its EPSS score has reached 10% (and when), and the fixed versions.
 - No matches means cve.now found none, not that the packages are safe.
 ```
 
